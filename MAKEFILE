@@ -1,0 +1,39 @@
+
+# nmake makefile, creates vwin32.exe.
+# vwin32.exe will work in win9x only
+# tools used:
+#  - jwasm  (or ms masm)
+#  - jwlink (or ms link)
+#  - wrc    (or ms rc)
+# wrc is the resource compiler supplied with Open Watcom
+
+name = vwin32
+
+DEBUG=0
+
+!if $(DEBUG)
+LOPTD=/DEBUG:FULL
+AOPTD=-Zd -DDEBUG
+OUTDIR=DEBUG
+!else
+LOPTD=/DEBUG:NONE
+AOPTD=
+OUTDIR=RELEASE
+!endif
+
+LIBS=kernel32.lib k32.lib user32.lib
+
+$(OUTDIR)\$(name).exe: $*.obj $(OUTDIR)\rsrc.res
+#	@link $* $(OUTDIR)\rsrc.res $(LIBS) /OUT:$*.exe /LIBPATH:Lib /MAP:$*.map /SUBSYSTEM:WINDOWS $(LOPTD) /FIXED:NO
+	@jwlink format win pe ru WIN file $* name $* libpath Lib lib {$(LIBS)} op q,m=$*, res=$(OUTDIR)\rsrc.res, start="_WinMainCRTStartup@0"
+
+$(OUTDIR)\$(name).obj: $(name).asm makefile
+	@jwasm -nologo -Sg -c -Fl$* -Fo$* -coff -IInclude $(name).asm
+
+$(OUTDIR)\rsrc.res: rsrc.rc makefile
+#	@rc -fo $(OUTDIR)\rsrc.res rsrc.rc
+	@wrc -q -r -fo=$(OUTDIR)\rsrc.res rsrc.rc
+
+clean:
+	del $(OUTDIR)\*.exe
+	del $(OUTDIR)\*.obj

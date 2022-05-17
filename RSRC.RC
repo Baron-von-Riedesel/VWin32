@@ -1,0 +1,51 @@
+
+//
+#include "resource.h"
+#include "rsrc.h"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 313, 141
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "VWin32 Memory Status"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "total address space",IDC_STATIC1,15,16,84,8
+    LTEXT           "free address space",IDC_STATIC10,15,31,84,8
+    LTEXT           "total physical memory",IDC_STATIC2,15,46,84,8
+    LTEXT           "free physical Memory",IDC_STATIC3,15,61,84,8
+    LTEXT           "unlocked physical memory",IDC_STATIC4,15,76,84,8
+    LTEXT           "committed memory",IDC_STATIC12,15,91,84,8
+    LTEXT           "page faults",IDC_STATIC5,181,15,60,8
+    LTEXT           "page ins",IDC_STATIC6,181,30,60,8
+    LTEXT           "page outs",IDC_STATIC7,181,45,60,8
+    LTEXT           "page discards",IDC_STATIC8,181,60,60,8
+    LTEXT           "instance faults",IDC_STATIC9,181,75,60,8
+    LTEXT           "paging file in use",IDC_STATIC11,181,90,60,8
+    EDITTEXT        IDC_EDIT1,106,13,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT10,106,28,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,106,43,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,106,58,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT4,106,73,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT12,106,88,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT5,249,12,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT6,249,27,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT7,249,42,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT8,249,57,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT9,249,72,48,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT11,249,87,48,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Unit",IDC_STATIC,7,113,114,19
+    CONTROL         "Pages",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,10,121,37,10
+    CONTROL         "kB",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,48,121,24,10
+    CONTROL         "MB",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,82,121,26,10
+    PUSHBUTTON      "Close",IDCANCEL,131,118,50,14
+    EDITTEXT        IDC_EDIT13,249,102,48,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "paging file max",IDC_STATIC13,181,105,60,8
+END
+
+
