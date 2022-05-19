@@ -5,6 +5,11 @@
 	option proc:private
 	option dotname
 
+ifdef @pe_file_flags
+	include pe.inc
+else
+VxDCall2 proto :dword, :dword, :dword
+endif
 
 ;--- 09/2001, v1.0: initial
 ;--- 10/2002, v1.0.1: "unit" added
@@ -75,8 +80,6 @@ MODE_KB		equ 1
 MODE_MB		equ 2
 
 	.code
-
-VxDCall2 proto service:dword,parm1:dword,parm2:dword
 
 memcpy proc c uses esi edi pDest:ptr,pSrc:ptr,dwSize:dword
 	mov edi,pDest
@@ -278,6 +281,5 @@ WinMainCRTStartup proc public
 
 WinMainCRTStartup endp
 
-
-	end
+	end WinMainCRTStartup
 

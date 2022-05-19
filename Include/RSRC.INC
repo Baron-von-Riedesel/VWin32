@@ -1,10 +1,6 @@
 
-option expr32
-option casemap:none
-
+; Begin of file rsrc.h
 IDC_STATIC		equ -1
-
-; Begin of file resource.h
 IDD_DIALOG1		EQU		101t
 IDC_EDIT1		EQU		1000t
 IDC_EDIT2		EQU		1001t
@@ -35,4 +31,4 @@ IDC_STATIC13		EQU		1032t
 IDC_RADIO1		EQU		1040t
 IDC_RADIO2		EQU		1041t
 IDC_RADIO3		EQU		1042t
-; End of file resource.h
+; End of file rsrc.h
